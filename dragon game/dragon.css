@@ -1,0 +1,164 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(70, 69, 69);
+    overflow: hidden; /* Prevent scrolling during game */
+}
+
+div.background {
+    background-image: url(bg.png);
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh; /* Fixed: removed comma, made full height */
+    position: relative; /* Added for absolute positioning context */
+}
+
+.dragon {
+    background-image: url(Dragon.png);
+    background-repeat: no-repeat;
+    width: 233px;
+    height: 255px;
+    background-size: cover;
+    position: absolute;
+    bottom: 18%;
+    left: 52px; /* Added fixed left position */
+    z-index: 2; /* Ensure dragon appears above background */
+}
+
+.Pikachu {
+    background-image: url(picachu.png);
+    width: 215px;
+    height: 270px;
+    position: absolute;
+    bottom: 19%;
+    left: 100vw; /* Start off-screen right */
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+}
+
+/* Fixed: Corrected class name and animation duration */
+.animatedragon {
+    animation: dragon 0.6s linear;
+}
+
+.PikachuAni {
+    animation: PikachuAni 5s linear infinite;
+}
+
+.gameover {
+    position: absolute; /* Changed from relative to absolute */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Perfect centering */
+    font-size: 54px;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    color: red;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    border: 3px solid red;
+    z-index: 10; /* Appear on top of everything */
+    display: none; /* Hidden by default */
+}
+
+.gameOver {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    z-index: 5;
+}
+
+.gameOver h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.gameOver p {
+    font-size: 18px;
+    color: #ffff00;
+}
+
+#scorecont {
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    position: absolute;
+    right: 46px;
+    top: 32px;
+    border: 2px solid white;
+    padding: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 3;
+}
+
+/* Dragon jump animation */
+@keyframes dragon {
+    0% {
+        bottom: 18%;
+    }
+    50% {
+        bottom: 80%; /* Adjusted for better jump height */
+    }
+    100% {
+        bottom: 18%;
+    }
+}
+
+/* Fixed: Corrected keyframe name to match class */
+@keyframes PikachuAni {
+    0% {
+        left: 100vw;
+    }
+    100% {
+        left: -15vw; /* Move further left to fully disappear */
+    }
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .dragon {
+        width: 150px;
+        height: 160px;
+        left: 20px;
+    }
+    
+    .Pikachu {
+        width: 130px;
+        height: 160px;
+    }
+    
+    .gameover {
+        font-size: 32px;
+        padding: 15px;
+    }
+    
+    #scorecont {
+        font-size: 18px;
+        right: 20px;
+        top: 20px;
+    }
+    
+    .gameOver h1 {
+        font-size: 24px;
+    }
+    
+    .gameOver p {
+        font-size: 14px;
+    }
+}
