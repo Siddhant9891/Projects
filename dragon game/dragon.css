@@ -110,13 +110,13 @@ div.background {
 /* Dragon jump animation */
 @keyframes dragon {
     0% {
-        bottom: 18%;
+        bottom: 22%;
     }
     50% {
-        bottom: 80%; /* Adjusted for better jump height */
+        bottom: 90%; /* Adjusted for better jump height */
     }
     100% {
-        bottom: 18%;
+        bottom: 22%;
     }
 }
 
